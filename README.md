@@ -76,7 +76,7 @@ bundle exec rake sam:invoke
 ## Delete AWS resources
 
 ```sh
-aws cloudformation delete-stack --stack-name sam-rds-slowquery-to-es
+aws cloudformation delete-stack --stack-name sam-rds-postgresql-slowquery-to-es
 cd terraform
-terraform destroy -var-file=variables.tfvars
+terraform destroy
 ```
