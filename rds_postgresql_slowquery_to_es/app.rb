@@ -47,7 +47,7 @@ def fingerprint(sql:)
   }
 end
 
-def parse_slowqueries(log_event:, log_group:, log_stream:, identifier:)
+def parse_slowqueries(log_event:, log_group:, log_stream:, log_timestamp:, identifier:)
   message = log_event.fetch('message')
   pg_sqs = PGSlowQueries.new(message, logger: LOGGER)
   pg_sqs.parse!
@@ -57,6 +57,7 @@ def parse_slowqueries(log_event:, log_group:, log_stream:, identifier:)
       'log_group' => log_group,
       'log_stream' => log_stream,
       'identifier' => identifier,
+      'log_timestamp' => log_timestamp,
       'timestamp' => row.fetch('timestamp').iso8601
     )
 
@@ -100,10 +101,13 @@ def lambda_handler(event:, context:) # rubocop:disable Lint/UnusedMethodArgument
   all_rows = []
 
   log_events.each do |log_event|
+    log_timestamp = log_event.fetch('timestamp')
+
     rows = parse_slowqueries(
       log_event: log_event,
       log_group: log_group,
       log_stream: log_stream,
+      log_timestamp: log_timestamp,
       identifier: identifier
     )
 
