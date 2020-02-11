@@ -4,6 +4,7 @@
 
 [![](https://github.com/winebarrel/sam-rds-postgresql-slowquery-to-es/workflows/spec/badge.svg)](https://github.com/winebarrel/sam-rds-postgresql-slowquery-to-es/actions)
 
+![](https://user-images.githubusercontent.com/117768/74236592-e848ef00-4d14-11ea-9b0c-5fddc27b66bd.png)
 
 ## Setup
 
