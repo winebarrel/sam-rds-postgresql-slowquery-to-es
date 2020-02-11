@@ -2,6 +2,9 @@
 
 [AWS SAM](https://aws.amazon.com/serverless/sam/) project that sends RDS(PostgreSQL) slowqueries from CloudWatch Logs to Elasticsearch.
 
+[![](https://github.com/winebarrel/sam-rds-postgresql-slowquery-to-es/workflows/spec/badge.svg)](https://github.com/winebarrel/sam-rds-postgresql-slowquery-to-es/actions)
+
+
 ## Setup
 
 ```sh
@@ -53,7 +56,9 @@ open http://localhost:5601
 
 ## Run tests
 
-TODO:
+```sh
+bundle exec rake
+```
 
 ## Deploy
 
